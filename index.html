@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day11</title>
+    <style>
+      /* Syntax=>
+      parent>child{
+
+                  }*/
+      .parent {
+        /* state1 */
+        width: 400px;
+        height: 400px;
+        background-color: red;
+        transition-property: background-color;
+        transition-duration: 2s;
+        display: inline-block;
+        /* you can write css properties in shorthand properties
+          syntax=>
+           transition:background 5s linear;*/
+      }
+      .parent:hover {
+        /* state2 */
+        background-color: green;
+      }
+
+      .parent > .child {
+        /* state1 */
+        width: 200px;
+        height: 200px;
+        background-color: greenyellow;
+        transition: background-color 3s;
+        /* we can use ALL in the place of values if we forgotan properties */
+      }
+
+      .parent > .child:hover {
+        /* state2 */
+        background-color: blue;
+      }
+      [data-parent="parent"] {
+        width: 450px;
+        height: 400px;
+        background: purple;
+        display: inline-block;
+      }
+      [data-parent="parent"] > [data-child="child"] {
+        /* state1 */
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: orange;
+        display: inline-block;
+        transition: all 2s linear 1s;
+        transform: translate(0px, 0px);
+      }
+      [data-parent="parent"]:hover > [data-child="child"] {
+        /* state2 */
+        background: brown;
+        transform: translate(0px, 300px);
+      }
+      .c2 {
+        transition: all 2s linear 2s !important;
+      }
+      .c3 {
+        transition: all 2s linear 1s !important;
+      }
+      .c4 {
+        transition: all 2s linear 0.2s !important;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ***7)Direct Child Selector(>)  
+    close angle bracket or greater than
+    Syntax=>
+    parent>child{
+
+                }-->
+
+    <div class="parent">
+      <div class="child"></div>
+    </div>
+    <div data-parent="parent">
+      <div data-child="child"></div>
+      <div data-child="child" class="c2"></div>
+      <div data-child="child" class="c3"></div>
+      <div data-child="child" class="c4"></div>
+    </div>
+  </body>
+</html>
